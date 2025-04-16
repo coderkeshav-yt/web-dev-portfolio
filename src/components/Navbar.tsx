@@ -13,6 +13,7 @@ import {
 import CalModal from '@/components/CalModal';
 import SearchModal from '@/components/SearchModal';
 import KeyboardShortcutsModal from '@/components/KeyboardShortcutsModal';
+import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,20 +74,20 @@ const Navbar: React.FC = () => {
         )}
       >
         <div className="container px-4 mx-auto flex items-center justify-between">
-          <a href="#home" className="flex items-center space-x-2 text-xl md:text-2xl font-bold text-white hover:opacity-80 transition-opacity z-50">
+          <Link to="/" className="flex items-center space-x-2 text-xl md:text-2xl font-bold text-white hover:opacity-80 transition-opacity z-50">
             <span className="bg-gradient-to-r from-violet-600 to-blue-500 bg-clip-text text-transparent">KS</span>
-          </a>
+          </Link>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="text-slate-300 hover:text-white animated-underline pb-1 transition-colors duration-300 text-sm tracking-wide font-medium"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
             <Button 
               onClick={openCalModal}

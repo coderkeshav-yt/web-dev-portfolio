@@ -28,29 +28,39 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ maxProjects }) => {
       title: 'E-Commerce Platform',
       description: 'A modern e-commerce platform with React and Node.js integration for seamless online shopping experiences.',
       tags: ['React', 'Node.js', 'MongoDB'],
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
+      image: 'https://images.unsplash.com/photo-1611224885990-ab7363d1f2a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1039&q=80',
       demoUrl: '#demo-1',
       repoUrl: '#repo-1',
       featured: true
     },
     {
       id: 2,
-      title: 'Portfolio Website',
-      description: 'A stunning portfolio website built with React, featuring responsive design and modern animations.',
-      tags: ['React', 'Tailwind CSS'],
-      image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
+      title: 'Portfolio Management System',
+      description: 'A comprehensive portfolio tracking system with real-time analytics and interactive dashboards for investment management.',
+      tags: ['React', 'TypeScript', 'Node.js'],
+      image: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1039&q=80',
       demoUrl: '#demo-2',
       repoUrl: '#repo-2',
       featured: true
     },
     {
       id: 3,
+      title: 'Portfolio Website',
+      description: 'A stunning portfolio website built with React, featuring responsive design and modern animations.',
+      tags: ['React', 'Tailwind CSS'],
+      image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
+      demoUrl: '#demo-3',
+      repoUrl: '#repo-3',
+      featured: true
+    },
+    {
+      id: 4,
       title: 'Blog Platform',
       description: 'A modern blogging platform with dynamic content management and responsive design.',
       tags: ['React', 'Node.js', 'MongoDB'],
       image: 'https://images.unsplash.com/photo-1611224885990-ab7363d1f2a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1039&q=80',
-      demoUrl: '#demo-3',
-      repoUrl: '#repo-3',
+      demoUrl: '#demo-4',
+      repoUrl: '#repo-4',
       featured: false
     }
   ];
