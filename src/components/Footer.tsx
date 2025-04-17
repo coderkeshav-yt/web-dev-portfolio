@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
               <a href="https://linkedin.com/in/keshav-singh" target="_blank" rel="noopener noreferrer" className="text-keshav-gray hover:text-keshav-purple transition-colors duration-300" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a href="https://github.com/keshav-singh" target="_blank" rel="noopener noreferrer" className="text-keshav-gray hover:text-keshav-purple transition-colors duration-300" aria-label="GitHub">
+              <a href="https://github.com/coderkeshav-yt" target="_blank" rel="noopener noreferrer" className="text-keshav-gray hover:text-keshav-purple transition-colors duration-300" aria-label="GitHub">
                 <Github size={20} />
               </a>
               <a href="https://twitter.com/keshav_dev" target="_blank" rel="noopener noreferrer" className="text-keshav-gray hover:text-keshav-purple transition-colors duration-300" aria-label="Twitter">
@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
               className="text-keshav-purple hover:underline transition-colors duration-300 flex items-center gap-2"
             >
               <Mail size={18} />
-              <span>hello@keshavsingh.dev</span>
+              <span>workwithkeshav@gmail.com</span>
             </a>
           </motion.div>
         </motion.div>

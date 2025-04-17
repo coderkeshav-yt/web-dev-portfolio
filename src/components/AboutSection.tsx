@@ -37,7 +37,7 @@ const AboutSection: React.FC = () => {
     {
       title: "Software Engineer",
       company: "Global Solutions Ltd.",
-      date: "2017 - 2020",
+      date: "2020 - 2023",
       description: "Developed and maintained scalable software solutions, focusing on backend development with Java and Spring Boot."
     },
   ];
@@ -45,14 +45,14 @@ const AboutSection: React.FC = () => {
   const educationItems = [
     {
       title: "Master of Science in Computer Science",
-      institution: "Stanford University",
-      date: "2015 - 2017",
-      description: "Specialized in Artificial Intelligence and Machine Learning."
+      institution: "NIT Kurukshetra",
+      date: "2018 - 2020",
+      description: "Specialized in Artificial Intelligence and Development."
     },
     {
       title: "Bachelor of Science in Software Engineering",
-      institution: "University of California, Berkeley",
-      date: "2011 - 2015",
+      institution: "University of NIT , Kurukshetra",
+      date: "2014 - 2018",
       description: "Graduated with honors, focusing on software architecture and design."
     },
   ];
@@ -150,9 +150,9 @@ const AboutSection: React.FC = () => {
               <p className="text-slate-400 mb-4">Feel free to reach out to me directly</p>
               
               <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                <span className="text-slate-300">keshavsingh@gmail.com</span>
+                <span className="text-slate-300">workwithkeshav@gmail.com</span>
                 <button 
-                  onClick={() => copyToClipboard('keshavsingh@gmail.com')}
+                  onClick={() => copyToClipboard('workwithkeshav@gmail.com')}
                   className="p-2 hover:bg-violet-500/20 rounded-md transition-colors"
                   aria-label="Copy email address"
                 >

@@ -185,7 +185,7 @@ const ContactSection: React.FC = () => {
                   <div>
                     <h4 className="font-medium text-lg">Email</h4>
                     <div className="flex items-center justify-between p-3 bg-keshav-dark/50 rounded-lg border border-keshav-purple/20 group hover:border-keshav-purple/40 transition-all duration-300">
-                      <span className="text-keshav-gray">keshavsingh@gmail.com</span>
+                      <span className="text-keshav-gray">workwithkeshav@gmail.com</span>
                       <motion.button
                         onClick={handleCopyEmail}
                         className="p-2 hover:bg-keshav-purple/20 rounded-md transition-colors relative"
@@ -233,10 +233,10 @@ const ContactSection: React.FC = () => {
                   <div>
                     <h4 className="font-medium text-lg">Phone</h4>
                     <a 
-                      href="tel:+911234567890" 
+                      href="tel:+919999999999" 
                       className="text-keshav-gray hover:text-keshav-purple transition-colors"
                     >
-                      +91 1234 567 890
+                      +91 9999999999
                     </a>
                   </div>
                 </motion.div>
