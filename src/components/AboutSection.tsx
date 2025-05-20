@@ -150,9 +150,10 @@ const AboutSection: React.FC = () => {
               <p className="text-slate-400 mb-4">Feel free to reach out to me directly</p>
               
               <div className="flex items-center justify-between p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                <span className="text-slate-300">workwithkeshav@gmail.com</span>
+                <span className="text-slate-300">hello.keshav.webdev@gmail.com
+</span>
                 <button 
-                  onClick={() => copyToClipboard('workwithkeshav@gmail.com')}
+                  onClick={() => copyToClipboard('hello.keshav.webdev@gmail.com')}
                   className="p-2 hover:bg-violet-500/20 rounded-md transition-colors"
                   aria-label="Copy email address"
                 >

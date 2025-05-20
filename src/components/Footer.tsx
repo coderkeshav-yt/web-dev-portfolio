@@ -107,11 +107,11 @@ const Footer: React.FC = () => {
               Feel free to reach out to me for any inquiries or collaboration opportunities.
             </p>
             <a 
-              href="mailto:hello@keshavsingh.dev" 
+              href="mailto:hello.keshav.webdev@gmail.com" 
               className="text-keshav-purple hover:underline transition-colors duration-300 flex items-center gap-2"
             >
               <Mail size={18} />
-              <span>workwithkeshav@gmail.com</span>
+              <span>hello.keshav.webdev@gmail.com</span>
             </a>
           </motion.div>
         </motion.div>

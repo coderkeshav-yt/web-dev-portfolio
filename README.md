@@ -1,7 +1,7 @@
 # 🎯 Welcome to My Developer Portfolio  
 **👨‍💻 Keshav Kumar Singh | Full Stack Web Developer**
 
-📫 **Email:** *your-email@example.com*  
+📫 **Email:** *hello.keshav.webdev@gmail.com*  
 🌍 **Live Website:** https://web-dev-portfolio-dun.vercel.app/ 
 
 ---
@@ -49,40 +49,6 @@ Your project will now be available at **http://localhost:8080** by default.
 
 ---
 
-## 🧠 Other Ways to Contribute or Edit
-
-### ✍️ Edit Files Directly on GitHub
-
-1. Navigate to any file.
-2. Click the **✏️ Edit** icon.
-3. Make your changes and **commit**.
-
-### 💻 Use GitHub Codespaces (No setup needed)
-
-1. Go to the main page of the repository.
-2. Click the green **Code** button → **Codespaces** tab.
-3. Hit **New Codespace** to launch an in-browser dev environment.
-4. Work, preview, and push changes instantly.
-
----
-
-## 🚀 Deployment 
-
-You can deploy this project on any modern frontend hosting platform. Recommended:
-
-### ✅ Deploy on Vercel
-
-1. Go to [vercel.com/import](https://vercel.com/import)
-2. Connect your GitHub repository.
-3. Select **Vite + React** as the framework preset.
-4. Click **Deploy** and you’re live!
-
-### 🌐 Alternatives
-
-- [Netlify](https://netlify.com/)
-- GitHub Pages (with static build configuration)
-
----
 
 ## 🙌 Final Words
 

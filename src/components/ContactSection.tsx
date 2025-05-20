@@ -47,7 +47,7 @@ const ContactSection: React.FC = () => {
   };
 
   const handleCopyEmail = async () => {
-    const email = "keshavsingh@gmail.com";
+    const email = "hello.keshav.webdev@gmail.com";
     try {
       await navigator.clipboard.writeText(email);
       setCopied(true);
@@ -185,7 +185,7 @@ const ContactSection: React.FC = () => {
                   <div>
                     <h4 className="font-medium text-lg">Email</h4>
                     <div className="flex items-center justify-between p-3 bg-keshav-dark/50 rounded-lg border border-keshav-purple/20 group hover:border-keshav-purple/40 transition-all duration-300">
-                      <span className="text-keshav-gray">workwithkeshav@gmail.com</span>
+                      <span className="text-keshav-gray">hello.keshav.webdev@gmail.com</span>
                       <motion.button
                         onClick={handleCopyEmail}
                         className="p-2 hover:bg-keshav-purple/20 rounded-md transition-colors relative"
