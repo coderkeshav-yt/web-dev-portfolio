@@ -75,7 +75,7 @@ const App: React.FC = () => {
                   style: {
                     scale: 1,
                     y: 0,
-                    filter: 'blur(8px)'
+                    filter: 'none'
                   } as React.CSSProperties,
                 }}
               />
