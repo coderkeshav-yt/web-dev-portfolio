@@ -42,20 +42,12 @@ const AboutSection: React.FC = () => {
     },
   ];
 
-  const educationItems = [
-    {
-      title: "Master of Science in Computer Science",
-      institution: "NIT Kurukshetra",
-      date: "2018 - 2020",
-      description: "Specialized in Artificial Intelligence and Development."
-    },
-    {
-      title: "Bachelor of Science in Software Engineering",
-      institution: "University of NIT , Kurukshetra",
-      date: "2014 - 2018",
-      description: "Graduated with honors, focusing on software architecture and design."
-    },
-  ];
+  const aboutMe = `
+    I'm a passionate full-stack developer with a keen eye for creating beautiful, functional web applications. 
+    With expertise in modern JavaScript frameworks and cloud technologies, I bring ideas to life through clean, 
+    efficient code and intuitive user experiences. My approach combines technical excellence with creative 
+    problem-solving to deliver outstanding digital solutions.
+  `;
 
   return (
     <section id="about" className="py-20 md:py-32 relative overflow-hidden bg-slate-900/50">
@@ -125,20 +117,38 @@ const AboutSection: React.FC = () => {
             </div>
             
             <div className="glass-card p-6 hover-card transition-all duration-300">
-              <div className="flex items-center gap-3 mb-1">
-                <Calendar size={20} className="text-violet-400" />
-                <h4 className="text-xl font-medium">Education & Certifications</h4>
+              <div className="flex items-center gap-3 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-violet-400">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <h4 className="text-2xl font-bold bg-gradient-to-r from-violet-400 to-blue-500 bg-clip-text text-transparent">About Me</h4>
               </div>
-              <p className="text-slate-400 mb-4">My academic background and certifications</p>
               
-              <div className="space-y-4">
-                {educationItems.map((item, index) => (
-                  <div key={index} className="space-y-2">
-                    <h5 className="font-medium">{item.title}</h5>
-                    <p className="text-sm text-slate-300">{item.institution} - {item.date}</p>
-                    <p className="text-slate-400">{item.description}</p>
+              <div className="prose prose-invert max-w-none">
+                <p className="text-slate-300 leading-relaxed">
+                  {aboutMe}
+                </p>
+              </div>
+              
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-slate-800/30 border border-slate-700/50 hover:border-violet-500/30 transition-colors">
+                  <div className="text-sm font-medium text-violet-400 mb-2">Location</div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span className="text-slate-300">San Francisco, CA</span>
                   </div>
-                ))}
+                </div>
+                <div className="p-4 rounded-xl bg-slate-800/30 border border-slate-700/50 hover:border-violet-500/30 transition-colors">
+                  <div className="text-sm font-medium text-violet-400 mb-2">Availability</div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                    <span className="text-slate-300">Available for work</span>
+                  </div>
+                </div>
               </div>
             </div>
             
