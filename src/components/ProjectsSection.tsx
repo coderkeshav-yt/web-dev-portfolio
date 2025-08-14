@@ -67,6 +67,26 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ maxProjects }) => {
       demoUrl: 'https://enrollify-nine.vercel.app/',
       repoUrl: 'https://github.com/coderkeshav-yt/Enrollify',
       featured: false
+    },
+    {
+      id: 5,
+      title: 'Landing Page',
+      description: 'A modern and responsive landing page with smooth animations and clean design.',
+      tags: ['React', 'Tailwind CSS'],
+      image: 'https://res.cloudinary.com/dlvxjnycr/image/upload/v1755186156/landing_page_xgtd11.webp',
+      demoUrl: 'https://postivelandingpage.vercel.app/',
+      repoUrl: '#',
+      featured: true
+    },
+    {
+      id: 6,
+      title: 'Market Dashboard',
+      description: 'A comprehensive market analytics dashboard with real-time data visualization and insights.',
+      tags: ['React', 'TypeScript', 'Tailwind CSS'],
+      image: 'https://res.cloudinary.com/dlvxjnycr/image/upload/v1755186676/dashbaord_kaxuvr.jpg',
+      demoUrl: 'https://market-pulse-three.vercel.app/',
+      repoUrl: '#',
+      featured: true
     }
   ], []);
 

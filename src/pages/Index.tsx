@@ -162,7 +162,7 @@ const Index = () => {
         <Hero />
         <AboutSection />
         <StoriesSection />
-        <ProjectsSection maxProjects={5} />
+        <ProjectsSection maxProjects={10} />
         <BlogSection />
         <ContactSection />
       </main>
