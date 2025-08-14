@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
-import CustomCursor from '@/components/CustomCursor';
+import { useEffect, useState, useCallback } from 'react';
 import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
+import { Hero } from '@/components/hero';
 import AboutSection from '@/components/AboutSection';
 import StoriesSection from '@/components/StoriesSection';
 import ProjectsSection from '@/components/ProjectsSection';
@@ -10,9 +9,11 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
+import useThrottledScroll from '@/hooks/use-throttled-scroll';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const { scrollY, isScrollingFast } = useThrottledScroll();
   const isMobile = useIsMobile();
 
   // Simulate loading
@@ -38,23 +39,30 @@ const Index = () => {
         </svg>
       `;
       
-      // Add fade out on scroll
-      const handleScroll = () => {
-        const scrollY = window.scrollY;
-        if (scrollY > 100) {
-          scrollExplorer.style.opacity = Math.max(0, 1 - scrollY / 300).toString();
-        }
-      };
-      
-      window.addEventListener('scroll', handleScroll);
       document.getElementById('hero-section')?.appendChild(scrollExplorer);
       
       return () => {
-        window.removeEventListener('scroll', handleScroll);
-        document.getElementById('hero-section')?.removeChild(scrollExplorer);
+        const element = document.getElementById('hero-section');
+        if (element && scrollExplorer.parentNode) {
+          element.removeChild(scrollExplorer);
+        }
       };
     }
   }, [isMobile]);
+
+  // Update scroll explorer opacity based on throttled scroll
+  useEffect(() => {
+    if (!isMobile) {
+      const scrollExplorer = document.querySelector('.scroll-explorer') as HTMLElement;
+      if (scrollExplorer) {
+        if (scrollY > 100) {
+          scrollExplorer.style.opacity = Math.max(0, 1 - scrollY / 300).toString();
+        } else {
+          scrollExplorer.style.opacity = '1';
+        }
+      }
+    }
+  }, [scrollY, isMobile]);
 
   // Smooth scroll behavior for anchor links
   useEffect(() => {
@@ -147,12 +155,11 @@ const Index = () => {
         )}
       </AnimatePresence>
       
-      {/* Only render CustomCursor on desktop */}
-      {!isMobile && <CustomCursor />}
+
       
       <Navbar />
       <main>
-        <HeroSection />
+        <Hero />
         <AboutSection />
         <StoriesSection />
         <ProjectsSection maxProjects={5} />

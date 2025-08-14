@@ -1,23 +1,17 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 import { Button } from './ui/button';
+import useThrottledScroll from '@/hooks/use-throttled-scroll';
 
 const BackToTop = () => {
+  const { scrollY, isScrollingFast } = useThrottledScroll();
   const [isVisible, setIsVisible] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 400) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+    setIsVisible(scrollY > 400);
+  }, [scrollY]);
 
   const scrollToTop = () => {
     window.scrollTo({

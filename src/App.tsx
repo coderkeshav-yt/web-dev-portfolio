@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { Toaster } from "@/components/ui/toaster"
 import { Toaster as Sonner } from 'sonner'
 import { TooltipProvider } from "@/components/ui/tooltip"
@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
 import { AnimatePresence } from 'framer-motion'
 import { HelmetProvider } from 'react-helmet-async'
+import { usePerformanceObserver } from './hooks/use-performance-observer'
+import { initializePerformanceMonitoring } from './utils/performance-monitor'
 import Index from "./pages/Index"
 import GuestBook from "./pages/GuestBook"
 import BucketList from "./pages/BucketList"
@@ -18,6 +20,7 @@ import Navbar from "./components/Navbar"
 import { usePageLoading } from "./hooks/use-page-loading"
 import ScrollToTop from "./components/ScrollToTop"
 import { useNavigationShortcuts } from "./hooks/use-navigation-shortcuts"
+import ScrollPerformanceOptimizer from "./components/ScrollPerformanceOptimizer"
 
 const queryClient = new QueryClient()
 
@@ -25,11 +28,14 @@ const AppRoutes = () => {
   const location = useLocation();
   const isLoading = usePageLoading();
   
-  // Initialize navigation shortcuts
+  // Initialize navigation shortcuts only
   useNavigationShortcuts();
   
+  // Initialize performance optimizations (less aggressive)
+  // usePerformanceObserver();
+  
   return (
-    <>
+    <ScrollPerformanceOptimizer>
       <ScrollToTop />
       <AnimatePresence>
         {isLoading && <PageLoadingIndicator />}
@@ -47,11 +53,16 @@ const AppRoutes = () => {
           </Routes>
         </PageTransition>
       </AnimatePresence>
-    </>
+    </ScrollPerformanceOptimizer>
   );
 };
 
 const App: React.FC = () => {
+  useEffect(() => {
+    // Temporarily disabled to fix loading issues
+    // initializePerformanceMonitoring();
+  }, []);
+
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>

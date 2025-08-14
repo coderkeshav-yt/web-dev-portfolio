@@ -52,8 +52,30 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-[#0F172A] text-slate-50 font-space-grotesk overflow-x-hidden;
+    /* Aggressive performance optimizations */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+    /* GPU acceleration for body */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    /* Reduce browser work */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   ::-webkit-scrollbar {
@@ -88,6 +110,8 @@
 
   .hover-card {
     @apply transition-all duration-500 hover:shadow-[0_0_30px_rgba(124,58,237,0.3)] hover:-translate-y-1;
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
   }
   
   .premium-card {
@@ -130,6 +154,77 @@
   .reduce-motion * {
     transition: none !important;
     animation: none !important;
+  }
+  
+  /* Super aggressive performance classes */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity;
+  }
+  
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .contain-layout {
+    contain: layout style paint;
+  }
+  
+  .performance-mode * {
+    animation-duration: 0.1s !important;
+    transition-duration: 0.1s !important;
+    will-change: auto;
+  }
+  
+  .scroll-optimized {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+  }
+  
+  .fast-transitions {
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out, background-color 0.1s ease-out !important;
+    will-change: transform, opacity, background-color;
+  }
+  
+  .instant-hover:hover {
+    transition: none !important;
+  }
+  
+  /* Critical missing performance classes */
+  .gpu-accelerated {
+    transform: translateZ(0) !important;
+    backface-visibility: hidden !important;
+    perspective: 1000px !important;
+    will-change: transform, opacity !important;
+    contain: layout style paint !important;
+  }
+  
+  /* Optimized scroll performance - Less aggressive */
+  .scrolling .hover-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  .scrolling .hover-card img {
+    transform: translateZ(0) !important;
+  }
+  
+  /* Performance mode for low-end devices */
+  .performance-mode .hover-card:hover,
+  .performance-mode .premium-card:hover {
+    transition-duration: 0.1s !important;
+  }
+  
+  /* Memory-efficient scroll handling */
+  .scroll-container {
+    contain: layout style paint !important;
   }
 }
 

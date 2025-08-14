@@ -4,6 +4,7 @@ import { Command, ArrowRight, Menu, X, Search, Calendar, Keyboard } from 'lucide
 import { motion, AnimatePresence } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from '@/components/ui/button';
+import useThrottledScroll from '@/hooks/use-throttled-scroll';
 import {
   Tooltip,
   TooltipContent,
@@ -16,6 +17,7 @@ import KeyboardShortcutsModal from '@/components/KeyboardShortcutsModal';
 import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
+  const { scrollY, isScrollingFast } = useThrottledScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isCalModalOpen, setIsCalModalOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
@@ -48,13 +50,8 @@ const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    setIsScrolled(scrollY > 20);
+  }, [scrollY]);
 
   const navItems = [
     { name: 'Home', href: '#home' },

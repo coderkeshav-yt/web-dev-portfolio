@@ -1,27 +1,22 @@
 import { useEffect, useState } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion';
+import useThrottledScroll from '@/hooks/use-throttled-scroll';
 
 const ScrollProgressIndicator = () => {
   const { scrollYProgress } = useScroll();
+  const { scrollY, isScrolling } = useThrottledScroll();
   const [isVisible, setIsVisible] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
   
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 120,
+    damping: 40,
     restDelta: 0.001
   });
 
   useEffect(() => {
-    const checkScroll = () => {
-      // Only show after scrolling down 100px
-      setIsVisible(window.scrollY > 100);
-    };
-
-    window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Check initial position
-
-    return () => window.removeEventListener('scroll', checkScroll);
-  }, []);
+    setIsVisible(scrollY > 100);
+  }, [scrollY]);
 
   if (!isVisible) return null;
 

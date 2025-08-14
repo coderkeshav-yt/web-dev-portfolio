@@ -6,13 +6,71 @@
   transition: filter 0.3s ease;
 }
 
-/* Apply blur transition to project images */
+/* Loader animation for Spline */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Apply blur transition to project images - Ultra optimized */
 .hover-card img {
-  will-change: filter, transform;
-  transition: filter 0.3s ease, transform 0.5s ease;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .hover-card:hover img {
-  filter: blur(1px);
-  transform: scale(1.05);
+  transform: translateZ(0) scale(1.05);
+}
+
+/* Disable expensive effects during scroll */
+.scrolling .hover-card img {
+  transition: none !important;
+  transform: translateZ(0) !important;
+  will-change: auto !important;
+}
+
+/* Ultra-aggressive performance mode */
+.performance-mode .hover-card img,
+.performance-mode img {
+  transition: none !important;
+  transform: translateZ(0) !important;
+  filter: none !important;
+  will-change: auto !important;
+}
+
+/* Scroll performance overrides - Less aggressive */
+.scrolling .hover-card:hover,
+.scrolling .premium-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Memory-efficient containment */
+.contain-layout {
+  contain: layout style paint size !important;
+}
+
+/* GPU layer promotion for critical elements */
+.gpu-accelerated {
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+  perspective: 1000px !important;
+  will-change: transform, opacity !important;
 }

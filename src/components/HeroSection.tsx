@@ -1,8 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Calendar, Mail, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import useThrottledScroll from '@/hooks/use-throttled-scroll';
 
 interface CodeSnippet {
   name: string;
@@ -102,6 +103,15 @@ const HeroSection = () => {
   const [typedLines, setTypedLines] = useState<number[]>([]);
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { isScrolling, isScrollingFast } = useThrottledScroll();
+
+  // Memoize animation variants for performance
+  const animationVariants = useMemo(() => ({
+    initial: shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }
+  }), [shouldReduceMotion]);
 
   useEffect(() => {
     setIsVisible(true);
